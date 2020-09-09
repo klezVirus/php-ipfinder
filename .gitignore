@@ -1,0 +1,12 @@
+# NP++
+*.bak
+*.html
+
+# JetBrain
+.idea/
+
+# Data Files
+input_files/
+results/
+data/
+whois/

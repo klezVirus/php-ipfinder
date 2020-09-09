@@ -1,0 +1,7 @@
+{
+    "require": {
+        "jsmitty12/phpwhois": "~5.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
