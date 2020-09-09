@@ -10,3 +10,6 @@ input_files/
 results/
 data/
 whois/
+
+# Config giles
+config.ini

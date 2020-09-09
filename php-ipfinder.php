@@ -15,7 +15,14 @@ require_once 'torchecker/whois.php';
 const IP_ADDRESS_PATTERN = "@^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$@";
 
 #### SET HERE YOUR DEFAULT IPINFO.IO API-KEY
-const API_KEY = "";
+const API_KEY_FILE = "./config.ini";
+
+function loadApiKey(){
+    $fp = fopen(API_KEY_FILE, "r");
+    $api_key = trim(fgets($fp));
+    fclose($fp);
+    return $api_key;
+}
 
 function createWorkingDirs(){
     $wDirs = array("/data", "/whois");
@@ -71,7 +78,7 @@ function checkMultipleFiles($filename, $outputfilename=NULL, $api_key=null, $pro
     //#####################################################################
 
     if($api_key === null){
-        $api_key = API_KEY;
+        $api_key = loadApiKey();
     }
 
     // Init Whois
@@ -109,7 +116,7 @@ function checkMultipleFiles($filename, $outputfilename=NULL, $api_key=null, $pro
 
 function checkSingleIP($ip, &$ip_info_table, &$i, $api_key=null, $whois=null, $dbipObj=null){
     if($api_key === null){
-        $api_key = API_KEY;
+        $api_key = loadApiKey();
     }
 
     if($whois === null){
