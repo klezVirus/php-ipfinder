@@ -13,3 +13,7 @@ whois/
 
 # Config giles
 config.ini
+
+# Trash
+PHPSESSID
+launcher.bat
